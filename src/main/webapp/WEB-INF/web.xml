@@ -8,6 +8,10 @@
         <servlet-name>regester_data</servlet-name>
         <servlet-class>Servlet.regester_data</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Check</servlet-name>
+        <servlet-class>security.Check</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>fetchrooms</servlet-name>
         <url-pattern>/fetchrooms</url-pattern>
@@ -16,9 +20,33 @@
         <servlet-name>regester_data</servlet-name>
         <url-pattern>/regester_data</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Check</servlet-name>
+        <url-pattern>/verify.html</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <!--    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>User pages</web-resource-name>
+            <url-pattern></url-pattern>
+            <url-pattern></url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>
+                user
+            </role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/error_login_failed.jsp</form-error-page>
+        </form-login-config>
+    </login-config>-->
 </web-app>

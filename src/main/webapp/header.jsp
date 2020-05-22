@@ -34,7 +34,8 @@
 					<li><a href="about.jsp">About us</a></li>
 					<li><a href="rooms.jsp">Rooms</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
-				</ul>
+                                        <li><a href="login.jsp">Login/Registration</a></li>
+                                </ul>
 			</nav>
 
 			<!-- Social -->
@@ -129,7 +130,7 @@
 
 		</div>
 	</div>
-
+        
     
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="styles/bootstrap-4.1.2/popper.js"></script>

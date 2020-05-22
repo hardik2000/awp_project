@@ -90,7 +90,7 @@
 						
 						<!-- Room -->
 						<div class="card">
-							<img class="card-img-top" src="https://photos.google.com/u/2/album/AF1QipMv7Xme3xgVK_dnriUul6JYjN59G035LRdRiqqG/photo/AF1QipPgPfYlGfNkenVcxbjhG4SUYN3UEQxV-xpf6YER" alt="Room image description">
+							<img class="card-img-top" src="images/room_1.jpg">
 							<div class="card-body">
 								<div class="rooms_title"><h2>Luxury Double Suite</h2></div>
 								<div class="rooms_text">
