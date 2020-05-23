@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package security;
-import domain.Customer;
+
 import data.Database_Feild;
+import domain.Customer;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author HARDIK
  */
-public class Check extends HttpServlet {
+public class Insert_costumer extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,14 +35,18 @@ public class Check extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
+            throws ServletException, IOException
     {
-            String username ;
-            username =  request.getParameter("email");
-            String password;
-            String id,pass;
-            password = request.getParameter("password");
-             Database_Feild db=new Database_Feild();
+            Customer customer=new Customer();
+            customer.setFullname(request.getParameter("fullName"));
+            customer.setEmail(request.getParameter("email"));
+            customer.setPassword(request.getParameter("password"));
+            customer.setDob(request.getParameter("birthDate"));
+            customer.setCountry("India");
+            customer.setGender("Male");
+            customer.setMeal("Salted");
+            
+            Database_Feild db=new Database_Feild();
             String driver_string=db.driver_string;
             String db_name=db.db_name;
             String db_username=db.username;
@@ -49,45 +55,24 @@ public class Check extends HttpServlet {
             {
                 Class.forName(driver_string);
                 Connection conn=DriverManager.getConnection(db_name,db_username,db_password);
-                PreparedStatement ps=conn.prepareStatement("SELECT * FROM Costumer;");
-                ResultSet result=ps.executeQuery();
-                while (result.next()) 
+                String query="Insert into Customer values (?,?,?,?,?,?,?);";
+                PreparedStatement pstmt=conn.prepareStatement(query);    
+                pstmt.setString(1, customer.getFullname());    
+                pstmt.setString(2, customer.getEmail());    
+                pstmt.setString(3, customer.getPassword());    
+                pstmt.setString(4, customer.getDob());    
+                pstmt.setString(5, customer.getCountry());    
+                pstmt.setString(6, customer.getGender()); 
+                pstmt.setString(7, customer.getMeal()); 
+                if(pstmt.executeUpdate()==1)
                 {
-                    id=result.getString(2);
-                    pass=result.getString(3);
-                    if(id.equals(username) && pass.equals(password))
-                    {
-                            try
-                            {
-                                Customer costumer=new Customer();
-                                costumer.setFullname(result.getString(1));
-                                costumer.setEmail(id);
-                                costumer.setPassword(pass);
-                                costumer.setDob(result.getString(4));
-                                costumer.setCountry(result.getString(5));
-                                costumer.setGender(result.getString(6));
-                                costumer.setMeal(result.getString(7));
-                                
-                                response.sendRedirect("index.jsp");
-                            }
-                            catch(Exception e)
-                            {
-                            
-                            }
-                    }
-                    else
-                    {
-                            try
-                            {
-                                response.sendRedirect("error_login.html");
-                            }
-                            catch(Exception e)
-                            {
-                            
-                            }
-
-                    }
+                    response.sendRedirect("index.jsp");
                 }
+                else
+                {
+                    response.sendRedirect("error_login.html");
+                } 
+                
             }
             catch(SQLException | ClassNotFoundException err)
             {

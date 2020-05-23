@@ -64,7 +64,7 @@
 	<!-- Intro -->
 
 	<div class="container">
-            <form class="form-horizontal" role="form" >
+            <form class="form-horizontal" role="form" method = "POST" action ="verify.html">
                 <h2>Login Form</h2>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>

@@ -38,16 +38,7 @@
                                 </ul>
 			</nav>
 
-			<!-- Social -->
-			<div class="social header_social">
-				<ul class="d-flex flex-row align-items-center justify-content-start">
-					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
+
 
 			<!-- Header Right -->
 			<div class="header_right d-flex flex-row align-items-center justify-content-start">

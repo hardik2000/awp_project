@@ -23,7 +23,7 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 </head>
 <body>
-
+    
 <div class="super_container">
 	
     <jsp:include page="/header.jsp"/>

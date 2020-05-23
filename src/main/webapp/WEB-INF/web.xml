@@ -12,6 +12,10 @@
         <servlet-name>Check</servlet-name>
         <servlet-class>security.Check</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Insert_costumer</servlet-name>
+        <servlet-class>security.Insert_costumer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>fetchrooms</servlet-name>
         <url-pattern>/fetchrooms</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Check</servlet-name>
         <url-pattern>/verify.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Insert_costumer</servlet-name>
+        <url-pattern>/Update.html</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -64,7 +64,7 @@
 	<!-- Intro -->
 
 	<div class="container">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" method = "POST" action ="Update.html">
                 <h2>Registration Form</h2>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Full Name</label>
@@ -109,17 +109,17 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="femaleRadio" value="Female">Female
+                                    <input type="radio" id="femaleRadio" name="gender" value="Female">Female
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="maleRadio" value="Male">Male
+                                    <input type="radio" id="maleRadio" name="gender" value="Male">Male
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="uncknownRadio" value="Unknown">Unknown
+                                    <input type="radio" id="uncknownRadio" name="gender" value="Unknown">Unknown
                                 </label>
                             </div>
                         </div>
@@ -130,12 +130,12 @@
                     <div class="col-sm-9">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="calorieCheckbox" value="Low calorie">Low calorie
+                                <input type="checkbox" id="calorieCheckbox" name="meal" value="Low calorie">Low calorie
                             </label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="saltCheckbox" value="Low salt">Low salt
+                                <input type="checkbox" id="saltCheckbox" name="meal" value="Low salt">Low salt
                             </label>
                         </div>
                     </div>
