@@ -8,11 +8,9 @@ package security;
 import data.Database_Feild;
 import domain.Customer;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,47 +35,39 @@ public class Insert_costumer extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        try
+        {
             Customer customer=new Customer();
-            customer.setFullname(request.getParameter("fullName"));
+            customer.setFullname(request.getParameter("firstName"));
             customer.setEmail(request.getParameter("email"));
             customer.setPassword(request.getParameter("password"));
             customer.setDob(request.getParameter("birthDate"));
-            customer.setCountry("India");
-            customer.setGender("Male");
-            customer.setMeal("Salted");
-            
+            customer.setCountry(request.getParameter("country"));
+            customer.setGender(request.getParameter("gender"));
+            customer.setMeal(request.getParameter("meal"));
             Database_Feild db=new Database_Feild();
             String driver_string=db.driver_string;
             String db_name=db.db_name;
             String db_username=db.username;
             String db_password=db.password;
-            try
-            {
-                Class.forName(driver_string);
-                Connection conn=DriverManager.getConnection(db_name,db_username,db_password);
-                String query="Insert into Customer values (?,?,?,?,?,?,?);";
-                PreparedStatement pstmt=conn.prepareStatement(query);    
-                pstmt.setString(1, customer.getFullname());    
-                pstmt.setString(2, customer.getEmail());    
-                pstmt.setString(3, customer.getPassword());    
-                pstmt.setString(4, customer.getDob());    
-                pstmt.setString(5, customer.getCountry());    
-                pstmt.setString(6, customer.getGender()); 
-                pstmt.setString(7, customer.getMeal()); 
-                if(pstmt.executeUpdate()==1)
-                {
-                    response.sendRedirect("index.jsp");
-                }
-                else
-                {
-                    response.sendRedirect("error_login.html");
-                } 
-                
-            }
-            catch(SQLException | ClassNotFoundException err)
-            {
-                
-            }
+            Class.forName(driver_string);
+            Connection conn=DriverManager.getConnection(db_name,db_username,db_password);
+            String query="Insert into customer(fullname,email,password,dob,country,gender,meal) values(?,?,?,?,?,?,?);";
+            PreparedStatement pstmt=conn.prepareStatement(query);
+            pstmt.setString(1, customer.getFullname());
+            pstmt.setString(2, customer.getEmail());
+            pstmt.setString(3, customer.getPassword());
+            pstmt.setString(4, customer.getDob());
+            pstmt.setString(5, customer.getCountry());
+            pstmt.setString(6, customer.getGender());
+            pstmt.setString(7, customer.getMeal());
+            pstmt.executeUpdate();
+            response.sendRedirect("index.jsp");
+        }catch(ClassNotFoundException | SQLException ex)
+        {
+            response.sendRedirect("registration.jsp");
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

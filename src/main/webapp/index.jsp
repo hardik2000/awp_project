@@ -27,7 +27,6 @@
 <div class="super_container">
 	
     <jsp:include page="/header.jsp"/>
-    
         <!-- Home -->
 
 	<div class="home">

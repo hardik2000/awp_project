@@ -35,28 +35,32 @@ public class Check extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-            String username ;
-            username =  request.getParameter("email");
-            String password;
-            String id,pass;
-            password = request.getParameter("password");
-             Database_Feild db=new Database_Feild();
-            String driver_string=db.driver_string;
-            String db_name=db.db_name;
-            String db_username=db.username;
-            String db_password=db.password;
             try
             {
+                String username ;
+                String password;
+                String id,pass;
+                username =  request.getParameter("email");
+                password = request.getParameter("password");
+                Database_Feild db=new Database_Feild();
+                String driver_string=db.driver_string;
+                String db_name=db.db_name;
+                String db_username=db.username;
+                String db_password=db.password;
+
                 Class.forName(driver_string);
                 Connection conn=DriverManager.getConnection(db_name,db_username,db_password);
-                PreparedStatement ps=conn.prepareStatement("SELECT * FROM Costumer;");
+                PreparedStatement ps=conn.prepareStatement("SELECT * FROM customer;");
                 ResultSet result=ps.executeQuery();
+                int flg=0;
                 while (result.next()) 
                 {
                     id=result.getString(2);
                     pass=result.getString(3);
                     if(id.equals(username) && pass.equals(password))
                     {
+                        flg=1;
+                    
                             try
                             {
                                 Customer costumer=new Customer();
@@ -70,28 +74,26 @@ public class Check extends HttpServlet {
                                 
                                 response.sendRedirect("index.jsp");
                             }
-                            catch(Exception e)
+                            catch(IOException | SQLException e)
                             {
-                            
+                                response.sendRedirect("error_login.jsp");
                             }
                     }
-                    else
+                }
+                if(flg==0)
+                {
+                    try
                     {
-                            try
-                            {
-                                response.sendRedirect("error_login.html");
-                            }
-                            catch(Exception e)
-                            {
-                            
-                            }
-
+                        response.sendRedirect("error_login.jsp");
+                    }
+                    catch(IOException e)
+                    {
                     }
                 }
             }
             catch(SQLException | ClassNotFoundException err)
             {
-                
+                    response.sendRedirect("error_login.jsp");
             }
     }
 

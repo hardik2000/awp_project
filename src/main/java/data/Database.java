@@ -28,7 +28,7 @@ public class Database
             Class.forName(driver_string);
             Connection conn=DriverManager.getConnection(db_name,db_username,db_password);
             String sql;
-            sql = "Create Table Customer(fullname VARCHAR(45),email VARCHAR(45),password VARCHAR(45),dob VARCHAR(45),country VARCHAR(45),gender VARCHAR(45),meal VARCHAR(45));";
+            sql = "Create Table customer(fullname VARCHAR(45),email VARCHAR(45),password VARCHAR(45),dob VARCHAR(45),country VARCHAR(45),gender VARCHAR(45),meal VARCHAR(45));";
             try (PreparedStatement prepStm = conn.prepareStatement(sql)) 
             {
 		prepStm.execute();

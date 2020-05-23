@@ -21,7 +21,7 @@ public class Database_Feild
     public String password;
 
     public Database_Feild() {
-        this.driver_string = "com.mysql.cj.jdbc.Driver";
+        driver_string = "com.mysql.cj.jdbc.Driver";
         db_name="jdbc:mysql://localhost:3306/awp";
         username="root";
         password="root";
