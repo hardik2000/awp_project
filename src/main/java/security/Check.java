@@ -40,62 +40,50 @@ public class Check extends HttpServlet {
                 String username ;
                 String password;
                 String id,pass;
-                username =  request.getParameter("email");
+                username = request.getParameter("email");
                 password = request.getParameter("password");
                 Database_Feild db=new Database_Feild();
                 String driver_string=db.driver_string;
                 String db_name=db.db_name;
                 String db_username=db.username;
                 String db_password=db.password;
-
-                Class.forName(driver_string);
-                Connection conn=DriverManager.getConnection(db_name,db_username,db_password);
-                PreparedStatement ps=conn.prepareStatement("SELECT * FROM customer;");
-                ResultSet result=ps.executeQuery();
                 int flg=0;
-                while (result.next()) 
+                Class.forName(driver_string);
+                try (Connection conn = DriverManager.getConnection(db_name,db_username,db_password)) 
                 {
-                    id=result.getString(2);
-                    pass=result.getString(3);
-                    if(id.equals(username) && pass.equals(password))
+                    PreparedStatement ps=conn.prepareStatement("SELECT * FROM customer;");
+                    ResultSet result=ps.executeQuery();
+                    while (result.next())
                     {
-                        flg=1;
-                    
-                            try
-                            {
-                                Customer costumer=new Customer();
-                                costumer.setFullname(result.getString(1));
-                                costumer.setEmail(id);
-                                costumer.setPassword(pass);
-                                costumer.setDob(result.getString(4));
-                                costumer.setCountry(result.getString(5));
-                                costumer.setGender(result.getString(6));
-                                costumer.setMeal(result.getString(7));
-                                
-                                response.sendRedirect("index.jsp");
-                            }
-                            catch(IOException | SQLException e)
-                            {
-                                response.sendRedirect("error_login.jsp");
-                            }
+                        id=result.getString(2);
+                        pass=result.getString(3);
+                        if(pass.equals(password) && id.equals(username))
+                        {
+                              flg=1;
+//                            Customer customer=new Customer();
+//                            customer.setFullname(result.getString(1));
+//                            customer.setEmail(id);
+//                            customer.setPassword(pass);
+//                            customer.setDob(result.getString(4));
+//                            customer.setCountry(result.getString(5));
+//                            customer.setGender(result.getString(6));
+//                            customer.setMeal(result.getString(7));
+                              response.sendRedirect("index.jsp");
+                        }
                     }
-                }
-                if(flg==0)
-                {
-                    try
+                    if(flg==0)
                     {
                         response.sendRedirect("error_login.jsp");
                     }
-                    catch(IOException e)
-                    {
-                    }
                 }
-            }
-            catch(SQLException | ClassNotFoundException err)
+                
+            }catch(IOException | ClassNotFoundException | SQLException e)
             {
-                    response.sendRedirect("error_login.jsp");
+                response.sendRedirect("error_login.jsp");
             }
     }
+        
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

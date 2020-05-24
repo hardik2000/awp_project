@@ -69,7 +69,7 @@
 										</select>
 									</div>
 								</div>
-								<button class="booking_form_button ml-lg-auto">book now</button>
+								<button class="booking_form_button ml-lg-auto" style="visibility: hidden">book now</button>
 							</div>
 					</div>
 				</div>

@@ -37,10 +37,20 @@ public class Database
             {
                 System.out.println(e);
             }
+            sql = "Create Table records(username_booked VARCHAR(45),number_adults VARCHAR(45),number_children VARCHAR(45),check_in VARCHAR(45),check_out VARCHAR(45),room_type VARCHAR(45));";
+            try (PreparedStatement prepStm2 = conn.prepareStatement(sql)) 
+            {
+		prepStm2.execute();
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
         }catch(ClassNotFoundException | SQLException ex)
         {
             System.out.println(ex);
         }
+        
     }
     
 }
