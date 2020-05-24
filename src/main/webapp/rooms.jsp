@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<div class="super_container">
+
 	
     <jsp:include page="/header.jsp"/>
     
@@ -37,21 +37,19 @@
 			<div class="home_title"><h1>Rooms</h1></div>
 		</div>
 	</div>
-
 	<!-- Booking -->
-
+        <form action="Process_Rooms" method="Post" class="booking_form">
 	<div class="booking">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="booking_container d-flex flex-row align-items-end justify-content-start">
-						<form action="#" class="booking_form">
 							<div class="booking_form_container d-flex flex-lg-row flex-column align-items-start justify-content-start flex-wrap">
 								<div class="booking_form_inputs d-flex flex-row align-items-start justify-content-between flex-wrap">
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
+									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required" name="check_in"></div>
+									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required" name="check_out"></div>
 									<div class="custom-select">
-										<select>
+										<select name="number_adults">
 											<option value="0">Adults</option>
 											<option value="1">1</option>
 											<option value="2">2</option>
@@ -61,7 +59,7 @@
 										</select>
 									</div>
 									<div class="custom-select">
-										<select>
+										<select name="number_children">
 											<option value="0">Children</option>
 											<option value="1">1</option>
 											<option value="2">2</option>
@@ -73,7 +71,6 @@
 								</div>
 								<button class="booking_form_button ml-lg-auto">book now</button>
 							</div>
-						</form>
 					</div>
 				</div>
 			</div>
@@ -81,7 +78,6 @@
 	</div>
 
 	<!-- Rooms -->
-
 	<div class="rooms">
 		<div class="container">
 			<div class="row">
@@ -113,38 +109,11 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="#">book now</a></div>
+                                                                <button type="submit" name="room_1" class="btn btn-success">Book Now</button>
 							</div>
 						</div>
 
-						<!-- Room -->
-						<div class="card">
-							<img class="card-img-top" src="images/room_2.jpg" alt="Room image description">
-							<div class="card-body">
-								<div class="rooms_title"><h2>Luxury Double Suite</h2></div>
-								<div class="rooms_text">
-									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque.</p>
-								</div>
-								<div class="rooms_list">
-									<ul>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Morbi tempus malesuada erat sed</span>
-										</li>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Tempus malesuada erat sed</span>
-										</li>
-										<li class="d-flex flex-row align-items-center justify-content-start">
-											<img src="images/check.png" alt="">
-											<span>Pellentesque vel neque finibus elit</span>
-										</li>
-									</ul>
-								</div>
-								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="#">book now</a></div>
-							</div>
-						</div>
+						
 
 						<!-- Room -->
 						<div class="card">
@@ -171,7 +140,7 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="#">book now</a></div>
+                                                                <button type="submit" name="room_2" class="btn btn-success">Book Now</button>
 							</div>
 						</div>
 
@@ -201,23 +170,19 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-								<div class="button rooms_button"><a href="#">book now</a></div>
+                                                                <button type="submit" name="room_3" class="btn btn-success">Book Now</button>
 							</div>
 						</div>
 
-					</div>
-
-					<div class="load_more_container text-center">
-						<div class="load_more_button"><a href="#">load more rooms</a></div>
 					</div>
 				</div>
 			</div>
 		</div>		
 	</div>
-        
+    </form>
         <jsp:include page="/footer.jsp"/>
 
-</div>
+
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="styles/bootstrap-4.1.2/popper.js"></script>

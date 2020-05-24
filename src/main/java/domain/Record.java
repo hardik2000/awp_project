@@ -15,7 +15,24 @@ public class Record{
     private String number_children;
     private String date_booking;
     private String date_checkout;
+    private String room_type;
 
+    public Record(String username_booked, String number_adults, String number_children, String date_booking, String date_checkout, String room_type) {
+        this.username_booked = username_booked;
+        this.number_adults = number_adults;
+        this.number_children = number_children;
+        this.date_booking = date_booking;
+        this.date_checkout = date_checkout;
+        this.room_type = room_type;
+    }
+    
+    public String getRoom_type() {
+        return room_type;
+    }
+
+    public void setRoom_type(String room_type) {
+        this.room_type = room_type;
+    }
     public String getUsername_booked() {
         return username_booked;
     }

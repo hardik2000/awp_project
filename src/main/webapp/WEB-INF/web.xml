@@ -16,6 +16,10 @@
         <servlet-name>Insert_costumer</servlet-name>
         <servlet-class>security.Insert_costumer</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Process_Rooms</servlet-name>
+        <servlet-class>Servlet.Process_Rooms</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>fetchrooms</servlet-name>
         <url-pattern>/fetchrooms</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>Insert_costumer</servlet-name>
         <url-pattern>/Update.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Process_Rooms</servlet-name>
+        <url-pattern>/Process_Rooms</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
