@@ -19,6 +19,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 /**
  *
  * @author Hardik Pandya
@@ -64,7 +65,6 @@ public class Process_Rooms extends HttpServlet {
         String db_password=db.password;
         
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
         
         try{
             Class.forName(driver_string);
@@ -80,10 +80,12 @@ public class Process_Rooms extends HttpServlet {
             ps.setString(5,check_out);
             ps.setString(6,room_selected);
             ps.executeUpdate();
-        }catch(Exception e){
+            RequestDispatcher rd=request.getRequestDispatcher("checkout.jsp");  
+            rd.forward(request,response);
+        }catch(ClassNotFoundException | SQLException e){
             out.println(e);
         }
-        out.println("Done</body></html>");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

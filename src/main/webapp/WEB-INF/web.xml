@@ -29,11 +29,10 @@
             30
         </session-timeout>
     </session-config>
-    <!--    <security-constraint>
+    <security-constraint>
         <web-resource-collection>
             <web-resource-name>User pages</web-resource-name>
-            <url-pattern></url-pattern>
-            <url-pattern></url-pattern>
+            <url-pattern>/rooms.jsp</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>
@@ -41,12 +40,14 @@
             </role-name>
         </auth-constraint>
     </security-constraint>
-    
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
     <login-config>
         <auth-method>FORM</auth-method>
         <form-login-config>
             <form-login-page>/login.jsp</form-login-page>
-            <form-error-page>/error_login_failed.jsp</form-error-page>
+            <form-error-page>/error_login.jsp</form-error-page>
         </form-login-config>
-    </login-config>-->
+    </login-config>
 </web-app>

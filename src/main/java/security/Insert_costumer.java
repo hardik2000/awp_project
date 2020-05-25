@@ -12,10 +12,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -62,7 +64,10 @@ public class Insert_costumer extends HttpServlet {
             pstmt.setString(6, customer.getGender());
             pstmt.setString(7, customer.getMeal());
             pstmt.executeUpdate();
-            response.sendRedirect("index.jsp");
+            HttpSession session = request.getSession();
+            session.setAttribute("sess_name",customer.getFullname());
+            RequestDispatcher rd=request.getRequestDispatcher("rooms.jsp");
+            rd.forward(request,response);
         }catch(ClassNotFoundException | SQLException ex)
         {
             response.sendRedirect("registration.jsp");

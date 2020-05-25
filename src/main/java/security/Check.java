@@ -12,10 +12,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -59,16 +61,19 @@ public class Check extends HttpServlet {
                         pass=result.getString(3);
                         if(pass.equals(password) && id.equals(username))
                         {
-                              flg=1;
-//                            Customer customer=new Customer();
-//                            customer.setFullname(result.getString(1));
-//                            customer.setEmail(id);
-//                            customer.setPassword(pass);
-//                            customer.setDob(result.getString(4));
-//                            customer.setCountry(result.getString(5));
-//                            customer.setGender(result.getString(6));
-//                            customer.setMeal(result.getString(7));
-                              response.sendRedirect("index.jsp");
+                            flg=1;
+//                          Customer customer=new Customer();
+//                          customer.setFullname(result.getString(1));
+//                          customer.setEmail(id);
+//                          customer.setPassword(pass);
+//                          customer.setDob(result.getString(4));
+//                          customer.setCountry(result.getString(5));
+//                          customer.setGender(result.getString(6));
+//                          customer.setMeal(result.getString(7));
+                            HttpSession session = request.getSession();
+                            session.setAttribute("sess_name",result.getString(1));
+                            RequestDispatcher rd=request.getRequestDispatcher("rooms.jsp");  
+                            rd.forward(request,response);
                         }
                     }
                     if(flg==0)

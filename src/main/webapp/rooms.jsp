@@ -39,44 +39,42 @@
 	</div>
 	<!-- Booking -->
         <form action="Process_Rooms" method="Post" class="booking_form">
-	<div class="booking">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="booking_container d-flex flex-row align-items-end justify-content-start">
-							<div class="booking_form_container d-flex flex-lg-row flex-column align-items-start justify-content-start flex-wrap">
-								<div class="booking_form_inputs d-flex flex-row align-items-start justify-content-between flex-wrap">
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required" name="check_in"></div>
-									<div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required" name="check_out"></div>
-									<div class="custom-select">
-										<select name="number_adults">
-											<option value="0">Adults</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-									</div>
-									<div class="custom-select">
-										<select name="number_children">
-											<option value="0">Children</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
-									</div>
-								</div>
-								<button class="booking_form_button ml-lg-auto" style="visibility: hidden">book now</button>
-							</div>
-					</div>
-				</div>
-			</div>
+	<div class="row">
+            <div class="col" align="center" style="background: rgb(208, 236, 231);">
+                <label style="color: red">CHECK IN DATE</label><br>
+                <input type="date" placeholder="Check in" required="required" id="check_in" name="check_in">
+            </div>    
+            <div class="col" align="center" style="background: rgb(208, 236, 231);">
+                <label style="color: red">CHECK OUT DATE</label><br>
+                <input type="date" placeholder="Check Out" required="required" id="check_out" name="check_out">
+            </div>
+            <div class="col" style="background: rgb(208, 236, 231);">
+                <div class="custom-select">
+                    <select name="number_adults">
+                        <option value="0">Adults</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
 		</div>
-	</div>
-
+            </div>
+            <div class="col" style="background: rgb(208, 236, 231);">
+                <div class="custom-select">
+		<select name="number_children">
+                    <option value="0">Children</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+		</select>
+		</div>
+            </div>
+      </div>	
+		
+	
 	<!-- Rooms -->
 	<div class="rooms">
 		<div class="container">
