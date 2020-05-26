@@ -25,6 +25,33 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+<script>
+    function validateForm()
+    {
+          
+        if(document.frm.email.value==='')
+        {
+          alert("User Name should not be left blank");
+          document.frm.email.focus();
+          return false;
+        }
+        
+        else{
+            var str = document.getElementById("password").value; 
+            if (str.match(/[a-z]/g) && str.match( 
+                    /[A-Z]/g) && str.match( 
+                    /[0-9]/g) && str.match( 
+                    /[^a-zA-Z\d]/g) && str.length >= 8){ 
+                return true;
+                }
+            else{ 
+                alert('password should contain atleast one small, one large alphabet, one special character and one numerical');
+                return false;
+                }
+        }
+        
+    }
+</script>
 <style>
     body {
         background-color: #eee;
@@ -64,7 +91,7 @@
 	<!-- Intro -->
 
 	<div class="container">
-            <form class="form-horizontal" role="form" method = "POST" action ="verify.html">
+            <form class="form-horizontal" role="form" method = "POST" action ="verify.html" onSubmit="return validateForm()">
                 <h2>Login Form</h2>
                 <div class="form-group">
                     <div class="col-sm-3"></div>
@@ -75,7 +102,7 @@
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" name="email" placeholder="Email" class="form-control">
+                        <input type="email" id="email" name="email"  placeholder="Email" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
@@ -88,7 +115,7 @@
                     <div class="col-sm-4">
                     </div>
                     <div class="col-sm-4">
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <button type="submit" class="btn btn-primary btn-block" value="submit" name="submit">Login</button>
                     </div>
                     <div class="col-sm-4">
                         <a href="registration.jsp"><button type="Button" class="btn btn-primary btn-block">Registration</button></a>
