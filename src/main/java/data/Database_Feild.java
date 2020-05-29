@@ -21,6 +21,6 @@ public class Database_Feild
         driver_string = "com.mysql.cj.jdbc.Driver";
         db_name="jdbc:mysql://localhost:3306/awp";
         username="root";
-        password="toor";
+        password="root";
     }
 }
