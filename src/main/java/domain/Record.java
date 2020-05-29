@@ -10,29 +10,30 @@ package domain;
  * @author HARDIK
  */
 public class Record{
+    private int room_no;
     private String username_booked;
     private String number_adults;
     private String number_children;
     private String date_booking;
     private String date_checkout;
-    private String room_type;
 
-    public Record(String username_booked, String number_adults, String number_children, String date_booking, String date_checkout, String room_type) {
+    public Record(String username_booked, String number_adults, String number_children, String date_booking, String date_checkout, int room_no) {
         this.username_booked = username_booked;
         this.number_adults = number_adults;
         this.number_children = number_children;
         this.date_booking = date_booking;
         this.date_checkout = date_checkout;
-        this.room_type = room_type;
+        this.room_no = room_no; 
     }
     
-    public String getRoom_type() {
-        return room_type;
+    public int getRoom_no() {
+        return room_no;
     }
 
-    public void setRoom_type(String room_type) {
-        this.room_type = room_type;
+    public void setRoom_no(int room_no) {
+        this.room_no = room_no;
     }
+    
     public String getUsername_booked() {
         return username_booked;
     }

@@ -107,7 +107,7 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-                                                                <button type="submit" name="room_1" class="btn btn-success">Book Now</button>
+                                                                <button type="submit" name="room_type" class="btn btn-success" value="Luxury Double Suite">Book Now</button>
 							</div>
 						</div>
 
@@ -138,7 +138,7 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-                                                                <button type="submit" name="room_2" class="btn btn-success">Book Now</button>
+                                                                <button type="submit" name="room_type" class="btn btn-success" value="Luxury Single Room">Book Now</button>
 							</div>
 						</div>
 
@@ -168,7 +168,7 @@
 									</ul>
 								</div>
 								<div class="rooms_price">$129/<span>Night</span></div>
-                                                                <button type="submit" name="room_3" class="btn btn-success">Book Now</button>
+                                                                <button type="submit" name="room_type" class="btn btn-success" value="Budget Suite">Book Now</button>
 							</div>
 						</div>
 

@@ -10,11 +10,12 @@ package domain;
  * @author HARDIK
  */
 public class Room{
+    private String discription;
     private String type;
-    private String id;
-    private String price;
-    private String capacity;
-    private String available_rooms;
+    private int room_no;
+    private int price;
+    private int capacity;
+    private boolean booked;
 
     public String getType() {
         return type;
@@ -23,37 +24,52 @@ public class Room{
     public void setType(String type) {
         this.type = type;
     }
-
-    public String getId() {
-        return id;
+    public String getDiscription() {
+        return discription;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setDiscription(String discription) {
+        this.discription = discription;
     }
 
-    public String getPrice() {
+    public int getRoom_no() {
+        return room_no;
+    }
+
+    public void setRoom_no(String id) {
+        this.room_no = room_no;
+    }
+
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public String getCapacity() {
+    public int getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(String capacity) {
+    public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
-    public String getAvailable_rooms() {
-        return available_rooms;
-    }
-
-    public void setAvailable_rooms(String available_rooms) {
-        this.available_rooms = available_rooms;
+    public boolean isBooked(){
+        return booked;
     }
     
+    public void setBooked(boolean booked){
+        this.booked = booked;
+    }
+    
+    public Room(int room_no,String type,int capacity,int price,String discription,boolean booked){
+        this.booked = booked;
+        this.room_no = room_no;
+        this.type = type;
+        this.capacity = capacity;
+        this.price = price;
+        this.discription = discription;
+    }
 }
