@@ -59,8 +59,8 @@ public class Database
                     PreparedStatement pstmt4=conn.prepareStatement(sql);
                     pstmt4.setInt(1, r.getRoom_no());
                     pstmt4.setString(2, r.getType());
-                    pstmt4.setInt(4, r.getPrice());
-                    pstmt4.setInt(3, r.getCapacity());
+                    pstmt4.setInt(3, r.getPrice());
+                    pstmt4.setInt(4, r.getCapacity());
                     pstmt4.setString(5, r.getDiscription());
                     pstmt4.setBoolean(6, r.isBooked());
                     pstmt4.executeUpdate();
