@@ -24,7 +24,74 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+    function validateForm(){
+        if(document.frm.firstName.value==='')
+        {
+          alert("User Name should not be left blank");
+          document.frm.firstName.focus();
+          return false;
+        }
+        
+        else if(document.frm.email.value==='')
+        {
+          alert("email should not be left blank");
+          document.frm.email.focus();
+          return false;
+        }
+        
+//        else if(document.frm.birthDate.value==="dd/mm/yyyy"){
+//            alert('choose a dob');
+//            return false;
+//        }
+        
+        else if(document.frm.country.value==="void"){
+            alert('choose a country');
+            return false;
+        }
+        else if(!(document.getElementById("femaleRadio").checked || document.getElementById("maleRadio").checked  || document.getElementById("uncknownRadio").checked)){
+            alert('choose a gender');
+            return false;
+        }
+        else if(!(document.getElementById("calorieCheckbox").checked || document.getElementById("saltCheckbox").checked)){
+            alert('choose a meal preference');
+            return false;
+        }
+        
+        else if(!(document.frm.accept.checked)){
+            alert('accept the terms');
+            return false;
+        }
+        
+        else{
+            var str = document.getElementById("password").value; 
+            if (str.match(/[a-z]/g) && str.match( 
+                    /[A-Z]/g) && str.match( 
+                    /[0-9]/g) && str.match( 
+                    /[^a-zA-Z\d]/g) && str.length >= 8){ 
 
+                }
+            else{ 
+                alert('password should contain atleast one small, one large alphabet, one special character and one numerical');
+                return false;
+                }
+        }
+        
+        
+//        
+//        
+//        var radios = document.getElementsByName("gender");
+//        if(!(radios[0].checked() || radios[1].checked() || radios[2].checked())){
+//            alert('select a gender');
+//            return false;
+//        }
+//        
+        
+    }
+    
+    
+    
+</script>
 <style>
     body {
         background-color: #eee;
@@ -64,7 +131,7 @@
 	<!-- Intro -->
 
 	<div class="container">
-            <form class="form-horizontal" role="form" method = "POST" action ="Update.html">
+            <form class="form-horizontal" name="frm" role="form" method = "POST" action ="Update.html" onSubmit="return validateForm()">
                 <h2>Registration Form</h2>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Full Name</label>
@@ -94,7 +161,7 @@
                     <label for="country" class="col-sm-3 control-label">Country</label>
                     <div class="col-sm-9">
                         <select id="country" name="country" class="form-control">
-                            <option>Choose your Country</option>
+                            <option value="void">Choose your Country</option>
                             <option>India</option>
                             <option>New York</option>
                             <option>U.S.A.</option>
@@ -144,14 +211,14 @@
                     <div class="col-sm-9 col-sm-offset-3">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox">I accept <a href="#">terms</a>
+                                <input type="checkbox" name="accept" id="accept">I accept <a href="#">terms</a>
                             </label>
                         </div>
                     </div>
                 </div> <!-- /.form-group -->
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <button type="submit" class="btn btn-primary btn-block" name="submit" id="submit" value="submit">Register</button>
                     </div>
                 </div>
             </form> <!-- /form -->
