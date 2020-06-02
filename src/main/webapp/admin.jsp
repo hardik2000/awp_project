@@ -11,7 +11,7 @@
 <%! 
     getRoom room = new getRoom();
     getRecord record = new getRecord();
-    ArrayList<Room> rooomlist = room.getAllRooms();
+    ArrayList<Room> rooomlist;
     String status,cust;
 %>
 <!DOCTYPE html>
@@ -82,6 +82,7 @@
                 </thead>
                 <tbody>
                     <%
+                        rooomlist = room.getAllRooms();
                         for(Room r:rooomlist)
                         {
                             if(r.isBooked())
