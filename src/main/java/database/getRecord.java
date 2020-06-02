@@ -9,9 +9,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
         
 import data.Database_Feild;
 import domain.Record;
+import java.sql.ResultSet;
 /**
  *
  * @author aditya
@@ -38,5 +40,26 @@ public class getRecord {
             return false;
         }
         return true;
+    }
+    
+    public String getCutomer(int room_no){ 
+        String name= "admin";
+        try{
+            Class.forName(db.driver_string);
+            Connection conn=DriverManager.getConnection(db.db_name,db.username,db.password);
+
+            String query = "SELECT * FROM records WHERE room_no=?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, Integer.toString(room_no));
+            ResultSet rs1 = pstmt.executeQuery();
+            while(rs1.next()){
+                name=rs1.getString("username_booked");
+                break;
+            }
+        }catch(ClassNotFoundException | SQLException ex)
+        {
+            return name;
+        }
+        return name;
     }    
 }

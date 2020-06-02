@@ -5,6 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="database.*"%>
+<%@ page import="domain.*"%>
+<%@ page import="java.util.ArrayList"%>
+<%! 
+    getRoom room = new getRoom();
+    getRecord record = new getRecord();
+    ArrayList<Room> rooomlist = room.getAllRooms();
+    String status,cust;
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,31 +73,37 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Room_no</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Customer</th>
                   </tr>
                 </thead>
                 <tbody>
+                    <%
+                        for(Room r:rooomlist)
+                        {
+                            if(r.isBooked())
+                            {
+                                status="Booked";
+                                cust=record.getCutomer(r.getRoom_no());
+                            }
+                            else 
+                            {
+                                status="Empty";
+                                cust="-";   
+                            }
+                    %>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                      <th scope="row"><%= r.getRoom_no() %></th>
+                      <th scope="row"><%= r.getType()%></th>
+                      <th scope="row"><%= r.getPrice()%></th>
+                      <th scope="row"><%= status%></th>
+                      <th scope="row"><%= cust%></th>
+                    
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  <%}%>
                 </tbody>
             </table>
         </div> <!-- ./container -->            

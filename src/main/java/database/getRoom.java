@@ -33,7 +33,7 @@ public class getRoom {
             ResultSet rs1 = stmt.executeQuery("SELECT * FROM rooms");
             while(rs1.next())
             {
-                roomlist.add(new Room(rs1.getInt(1),rs1.getString(2),rs1.getInt(3),rs1.getInt(4),rs1.getString(5),rs1.getBoolean(6)));
+                roomlist.add(new Room(rs1.getInt(1),rs1.getString(2),rs1.getInt(4),rs1.getInt(3),rs1.getString(5),rs1.getBoolean(6)));
             }
             
         }catch(ClassNotFoundException | SQLException e)
@@ -55,7 +55,7 @@ public class getRoom {
             ResultSet rs1 = stmt.executeQuery("SELECT * FROM rooms WHERE booked = true");
             while(rs1.next())
             {
-                roomlist.add(new Room(rs1.getInt(1),rs1.getString(2),rs1.getInt(3),rs1.getInt(4),rs1.getString(5),rs1.getBoolean(6)));
+                roomlist.add(new Room(rs1.getInt(1),rs1.getString(2),rs1.getInt(4),rs1.getInt(3),rs1.getString(5),rs1.getBoolean(6)));
             }
             
         }catch(ClassNotFoundException | SQLException e)
@@ -77,7 +77,7 @@ public class getRoom {
             ResultSet rs1 = stmt.executeQuery("SELECT * FROM rooms WHERE booked = true");
             while(rs1.next())
             {
-                roomlist.add(new Room(rs1.getInt(1),rs1.getString(2),rs1.getInt(3),rs1.getInt(4),rs1.getString(5),rs1.getBoolean(6)));
+                roomlist.add(new Room(rs1.getInt(1),rs1.getString(2),rs1.getInt(4),rs1.getInt(3),rs1.getString(5),rs1.getBoolean(6)));
             }
             
         }catch(ClassNotFoundException | SQLException e)
@@ -89,7 +89,7 @@ public class getRoom {
     
     public int getRoomOfType(String type){
         
-        int room_no=202;
+        int room_no=-1;
         try {
             Class.forName(db.driver_string);
             Connection conn=DriverManager.getConnection(db.db_name,db.username,db.password);
