@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import domain.Room;
+
 /**
  *
  * @author HARDIK
@@ -23,6 +25,7 @@ public class Database
         String db_name=db.db_name;
         String db_username=db.username;
         String db_password=db.password;
+        
         try
         {
             Class.forName(driver_string);
@@ -37,10 +40,31 @@ public class Database
             {
                 System.out.println(e);
             }
-            sql = "Create Table records(username_booked VARCHAR(45),number_adults VARCHAR(45),number_children VARCHAR(45),check_in VARCHAR(45),check_out VARCHAR(45),room_type VARCHAR(45));";
+            sql = "Create Table records(username_booked VARCHAR(45),number_adults int,number_children int,check_in VARCHAR(45),check_out VARCHAR(45),room_no int);";
             try (PreparedStatement prepStm2 = conn.prepareStatement(sql)) 
             {
 		prepStm2.execute();
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+            sql = "Create Table rooms(room_no INT,room_type VARCHAR(45),price INT,capacity INT,description VARCHAR(100),booked BOOLEAN);";
+            try (PreparedStatement prepStm3 = conn.prepareStatement(sql)) 
+            {
+		prepStm3.execute();
+                Data_Room robj = new Data_Room();
+                for(Room r: robj.rooms){
+                    sql="Insert into rooms(room_no,room_type,price,capacity,description,booked) values(?,?,?,?,?,?);";
+                    PreparedStatement pstmt4=conn.prepareStatement(sql);
+                    pstmt4.setInt(1, r.getRoom_no());
+                    pstmt4.setString(2, r.getType());
+                    pstmt4.setInt(3, r.getPrice());
+                    pstmt4.setInt(4, r.getCapacity());
+                    pstmt4.setString(5, r.getDiscription());
+                    pstmt4.setBoolean(6, r.isBooked());
+                    pstmt4.executeUpdate();
+                }
             }
             catch(Exception e)
             {
@@ -50,6 +74,8 @@ public class Database
         {
             System.out.println(ex);
         }
+        
+        
         
     }
     

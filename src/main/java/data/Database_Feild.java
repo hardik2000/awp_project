@@ -12,9 +12,6 @@ package data;
 public class Database_Feild 
 {
 
-    /**
-     *
-     */
     public String driver_string;
     public String db_name; 
     public String username;
@@ -26,5 +23,4 @@ public class Database_Feild
         username="root";
         password="root";
     }
-    
 }

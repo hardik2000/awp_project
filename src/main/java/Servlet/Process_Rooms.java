@@ -1,24 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlet;
 
-import data.Database_Feild;
-import domain.Customer;
+import database.*;
+
+import java.util.ArrayList;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import domain.Record;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import domain.*;
 import javax.servlet.RequestDispatcher;
 /**
  *
@@ -42,49 +33,22 @@ public class Process_Rooms extends HttpServlet {
         String check_out = request.getParameter("check_out");
         String number_adults = request.getParameter("number_adults");
         String number_children = request.getParameter("number_children");
-        String room_selected = "";
-        if(request.getParameter("room_1")!=null){
-            room_selected = "Luxury Double Suite";
-        }
-        else if(request.getParameter("room_2")!=null){
-            room_selected = "Luxury Single Room";
-        }
-        else if(request.getParameter("room_3")!=null){
-            room_selected = "Budget Suite";
-        }
+        String room_selected = request.getParameter("room_type");
+        
+        getRoom roomdb = new getRoom();
+        int room_no = roomdb.getRoomOfType(room_selected);        
+        
         HttpSession session = request.getSession();
         String name = (String)session.getAttribute("sess_name");
-        Record r = new Record(name, number_adults, number_children, check_in, check_out,room_selected);
+        Record r = new Record(name, number_adults, number_children, check_in, check_out,room_no);
         session.setAttribute("record",r);
         
+        getRecord rdb = new getRecord();
+        rdb.insertRecord(r);
+        roomdb.markBooked(room_no);
         
-        Database_Feild db=new Database_Feild();
-        String driver_string=db.driver_string;
-        String db_name=db.db_name;
-        String db_username=db.username;
-        String db_password=db.password;
-        
-        PrintWriter out = response.getWriter();
-        
-        try{
-            Class.forName(driver_string);
-            Connection conn = null;
-            PreparedStatement ps = null;
-            conn=DriverManager.getConnection(db_name,db_username,db_password);
-
-            ps = conn.prepareStatement("INSERT INTO records(username_booked,number_adults,number_children,check_in,check_out,room_type) VALUES(?,?,?,?,?,?)");
-            ps.setString(1,name);
-            ps.setString(2,number_adults);
-            ps.setString(3,number_children);
-            ps.setString(4,check_in);
-            ps.setString(5,check_out);
-            ps.setString(6,room_selected);
-            ps.executeUpdate();
-            RequestDispatcher rd=request.getRequestDispatcher("checkout.jsp");  
-            rd.forward(request,response);
-        }catch(ClassNotFoundException | SQLException e){
-            out.println(e);
-        }
+        RequestDispatcher rd=request.getRequestDispatcher("checkout.jsp");  
+        rd.forward(request,response);
         
     }
 
