@@ -47,7 +47,7 @@
 							<h1>Say Hello</h1>
 						</div>
 						<div class="contact_text text-center">
-							<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis.</p>
+							<p>Thank you for giving us an opportunity to be your host in our Hotel. We hope you enjoyed your stay with us. Please spare a few moments to complete this Feedback form which will help us to improve our service.</p>
 						</div>
 						<div class="contact_form_container">
 							<form action="#" class="contact_form text-center">

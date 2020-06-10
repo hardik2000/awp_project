@@ -44,48 +44,56 @@ public class Check extends HttpServlet {
                 String id,pass;
                 username = request.getParameter("email");
                 password = request.getParameter("password");
-                Database_Feild db=new Database_Feild();
-                String driver_string=db.driver_string;
-                String db_name=db.db_name;
-                String db_username=db.username;
-                String db_password=db.password;
-                int flg=0;
-                Class.forName(driver_string);
-                try (Connection conn = DriverManager.getConnection(db_name,db_username,db_password)) 
+                if(username.equals("Admin@gmail.com") && password.equals("Admin@123"))
                 {
-                    PreparedStatement ps=conn.prepareStatement("SELECT * FROM customer;");
-                    ResultSet result=ps.executeQuery();
-                    while (result.next())
+                    HttpSession session = request.getSession();
+                    session.setAttribute("sess_name","ADMIN");
+                    response.sendRedirect("admin.jsp");
+                }
+                else
+                {
+                    Database_Feild db=new Database_Feild();
+                    String driver_string=db.driver_string;
+                    String db_name=db.db_name;
+                    String db_username=db.username;
+                    String db_password=db.password;
+                    int flg=0;
+                    Class.forName(driver_string);
+                    try (Connection conn = DriverManager.getConnection(db_name,db_username,db_password)) 
                     {
-                        id=result.getString(2);
-                        pass=result.getString(3);
-                        if(pass.equals(password) && id.equals(username))
+                        PreparedStatement ps=conn.prepareStatement("SELECT * FROM customer;");
+                        ResultSet result=ps.executeQuery();
+                        while (result.next())
                         {
-                            flg=1;
-//                          Customer customer=new Customer();
-//                          customer.setFullname(result.getString(1));
-//                          customer.setEmail(id);
-//                          customer.setPassword(pass);
-//                          customer.setDob(result.getString(4));
-//                          customer.setCountry(result.getString(5));
-//                          customer.setGender(result.getString(6));
-//                          customer.setMeal(result.getString(7));
-                            HttpSession session = request.getSession();
-                            session.setAttribute("sess_name",result.getString(1));
-                            RequestDispatcher rd=request.getRequestDispatcher("rooms.jsp");  
-                            rd.forward(request,response);
+                            id=result.getString(2);
+                            pass=result.getString(3);
+                            if(pass.equals(password) && id.equals(username))
+                            {
+                                flg=1;
+    //                          Customer customer=new Customer();
+    //                          customer.setFullname(result.getString(1));
+    //                          customer.setEmail(id);
+    //                          customer.setPassword(pass);
+    //                          customer.setDob(result.getString(4));
+    //                          customer.setCountry(result.getString(5));
+    //                          customer.setGender(result.getString(6));
+    //                          customer.setMeal(result.getString(7));
+                                HttpSession session = request.getSession();
+                                session.setAttribute("sess_name",result.getString(1));
+                                RequestDispatcher rd=request.getRequestDispatcher("rooms.jsp");  
+                                rd.forward(request,response);
+                            }
+                        }
+                        if(flg==0)
+                        {
+                            response.sendRedirect("error_login.jsp");
                         }
                     }
-                    if(flg==0)
-                    {
-                        response.sendRedirect("error_login.jsp");
-                    }
                 }
-                
-            }catch(IOException | ClassNotFoundException | SQLException e)
-            {
-                response.sendRedirect("error_login.jsp");
-            }
+                }catch(IOException | ClassNotFoundException | SQLException e)
+                {
+                    response.sendRedirect("error_login.jsp");
+                }
     }
         
     

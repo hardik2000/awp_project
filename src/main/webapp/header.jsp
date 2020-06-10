@@ -34,7 +34,6 @@
 					<li><a href="about.jsp">About us</a></li>
 					<li><a href="rooms.jsp">Rooms</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
-                                        <li><a href="login.jsp">Login/Registration</a></li>
                                 </ul>
 			</nav>
 
