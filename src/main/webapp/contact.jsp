@@ -50,17 +50,17 @@
 							<p>Thank you for giving us an opportunity to be your host in our Hotel. We hope you enjoyed your stay with us. Please spare a few moments to complete this Feedback form which will help us to improve our service.</p>
 						</div>
 						<div class="contact_form_container">
-							<form action="#" class="contact_form text-center">
+							<form action="Mail" class="contact_form text-center" method="POST">
 								<div class="row">
 									<div class="col-lg-6">
-										<input type="text" class="contact_input" placeholder="Your name" required="required">
+                                                                            <input type="text" class="contact_input" placeholder="Your name" required="required" name="fname">
 									</div>
 									<div class="col-lg-6">
-										<input type="email" class="contact_input" placeholder="Your email" required="required">
+										<input type="email" class="contact_input" placeholder="Your email" required="required" name="email">
 									</div>
 								</div>
-								<input type="text" class="contact_input" placeholder="Subject">
-								<textarea class="contact_input" placeholder="Message" required="required"></textarea>
+								<input type="text" class="contact_input" placeholder="Subject" name="subject">
+								<textarea class="contact_input" placeholder="Message" required="required" name="msg"></textarea>
 								<button class="contact_button">send message</button>
 							</form>
 						</div>
