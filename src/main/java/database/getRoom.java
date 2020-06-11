@@ -108,7 +108,26 @@ public class getRoom {
         }
         return room_no;
     }
-    
+    public int getPriceOfType(String type)
+    {
+        int room_price=0;
+        try {
+            Class.forName(db.driver_string);
+            Connection conn=DriverManager.getConnection(db.db_name,db.username,db.password);
+            
+            String query = "SELECT * FROM rooms WHERE room_type=? AND booked=0";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, type);
+            ResultSet rs1 = pstmt.executeQuery();
+            while(rs1.next()){
+                room_price=rs1.getInt("price");
+                break;
+            }
+        }catch(ClassNotFoundException | SQLException e)
+        {
+        }
+        return room_price;
+    }
     public void markBooked(int room_no){
         try {
             

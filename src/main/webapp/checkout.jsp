@@ -136,7 +136,7 @@ span.price {
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/home.jpg" data-speed="0.8"></div>
 		<div class="home_container d-flex flex-column align-items-center justify-content-center">
 			<div class="home_title"><h1>Book Your Stay</h1></div>
-			<div class="button home_button"><a href="#">book now</a></div>
+			<div class="button home_button"><a href="rooms.jsp">book now</a></div>
 		</div>
 	</div>
 
@@ -146,7 +146,7 @@ span.price {
         <div class="row">
           <div class="col-75">
             <div class="container">
-              <form action="/action_page.php">
+              <form action="final" method="post" >
 
                 <div class="row">
                   <div class="col-50">
@@ -194,7 +194,7 @@ span.price {
                       </div>
                       <div class="col-50">
                         <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="352">
+                        <input type="text" id="cvv" name="cvv" placeholder="***">
                       </div>
                     </div>
                   </div>
@@ -209,13 +209,10 @@ span.price {
           </div>
           <div class="col-25">
             <div class="container">
-              <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-              <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-              <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-              <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-              <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+              <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
+              <p><%=request.getAttribute("room_type")%><span class="price"><%=request.getAttribute("price")%></span></p>
               <hr>
-              <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+              <p>Total <span class="price" style="color:black"><b><%=request.getAttribute("price")%></b></span></p>
             </div>
           </div>
         </div>

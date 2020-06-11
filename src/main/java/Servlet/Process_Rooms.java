@@ -37,18 +37,20 @@ public class Process_Rooms extends HttpServlet {
         
         getRoom roomdb = new getRoom();
         int room_no = roomdb.getRoomOfType(room_selected);        
+        int price = roomdb.getPriceOfType(room_selected);        
         
         HttpSession session = request.getSession();
         String name = (String)session.getAttribute("sess_name");
         Record r = new Record(name, number_adults, number_children, check_in, check_out,room_no);
         session.setAttribute("record",r);
         
-        getRecord rdb = new getRecord();
-        rdb.insertRecord(r);
-        roomdb.markBooked(room_no);
-        
-        RequestDispatcher rd=request.getRequestDispatcher("checkout.jsp");  
-        rd.forward(request,response);
+//        getRecord rdb = new getRecord();
+//        rdb.insertRecord(r);
+//        roomdb.markBooked(room_no);
+//        
+        request.setAttribute("room_type", room_selected);
+        request.setAttribute("price" , price);
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
         
     }
 
