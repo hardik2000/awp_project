@@ -142,4 +142,20 @@ public class getRoom {
             e.printStackTrace();
         }
     }
+    
+    public void updatePrice(String room_type,int price){
+        try {
+            
+            Class.forName(db.driver_string);
+            Connection conn=DriverManager.getConnection(db.db_name,db.username,db.password);
+            String query = "UPDATE rooms SET price=? WHERE room_type=?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, price);
+            pstmt.setString(2, room_type);
+            pstmt.execute();
+        }catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
