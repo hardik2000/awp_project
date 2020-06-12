@@ -74,5 +74,14 @@ public class Customer {
     public void setMeal(String meal) {
         this.meal = meal;
     }
-
+    
+    public Customer(String fullname,String email,String password,String dob,String country,String gender,String meal){
+        this.country=country;
+        this.fullname=fullname;
+        this.email=email;
+        this.gender=gender;
+        this.dob=dob;
+        this.password=password;
+        this.meal=meal;
+    }
 }
