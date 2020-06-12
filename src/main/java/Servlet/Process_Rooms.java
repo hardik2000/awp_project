@@ -44,10 +44,10 @@ public class Process_Rooms extends HttpServlet {
         Record r = new Record(name, number_adults, number_children, check_in, check_out,room_no);
         session.setAttribute("record",r);
         
-//        getRecord rdb = new getRecord();
-//        rdb.insertRecord(r);
-//        roomdb.markBooked(room_no);
-//        
+        getRecord rdb = new getRecord();
+        rdb.insertRecord(r);
+        roomdb.markBooked(room_no);
+        
         request.setAttribute("room_type", room_selected);
         request.setAttribute("price" , price);
         request.getRequestDispatcher("checkout.jsp").forward(request, response);

@@ -4,6 +4,8 @@
     Author     : HARDIK
 --%>
 
+<%@page import="database.getRecord"%>
+<%@page import="domain.Record"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html> 
@@ -24,7 +26,7 @@
         <h2  style="color:green;">for every room you book we plant a tree</h2>
         <h2><a href="logout.jsp" id="link">logout</a></h2>
     </center>
-
+   
 </body>
 </html>
 
