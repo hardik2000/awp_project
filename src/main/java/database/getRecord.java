@@ -61,5 +61,33 @@ public class getRecord {
             return name;
         }
         return name;
-    }    
+    }
+
+    public  void deleteRecord(String username){ 
+        try{
+            Class.forName(db.driver_string);
+            Connection conn=DriverManager.getConnection(db.db_name,db.username,db.password);
+
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM records WHERE username_booked = ?");
+            ps.setString(1,username);
+            ps.executeUpdate();
+        }catch(ClassNotFoundException | SQLException ex)
+        {
+            System.out.println("username not deleted");
+        }
+    }
+    
+    public  void deleteRecord(int room_no){ 
+        try{
+            Class.forName(db.driver_string);
+            Connection conn=DriverManager.getConnection(db.db_name,db.username,db.password);
+
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM records WHERE room_no = ?");
+            ps.setInt(1,room_no);
+            ps.executeUpdate();
+        }catch(ClassNotFoundException | SQLException ex)
+        {
+            System.out.println("username not deleted");
+        }
+    }
 }

@@ -68,47 +68,77 @@
 	</div>
         
 	<!-- Intro -->
+        <div class="container-fluid row">
+            <div class="col-1"></div>
+            <div class="col-7">
+                <h3>Rooms :</h3>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Room_no</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Customer</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            rooomlist = room.getAllRooms();
+                            for(Room r:rooomlist)
+                            {
+                                if(r.isBooked())
+                                {
+                                    status="Booked";
+                                    cust=record.getCutomer(r.getRoom_no());
+                                }
+                                else 
+                                {
+                                    status="Empty";
+                                    cust="-";   
+                                }
+                        %>
+                      <tr>
+                          <th scope="row"><%= r.getRoom_no() %></th>
+                          <th scope="row"><%= r.getType()%></th>
+                          <th scope="row"><%= r.getPrice()%></th>
+                          <th scope="row"><%= status%></th>
+                          <th scope="row"><%= cust%></th>
 
-	<div class="container">
-            <table class="table table-bordered table-striped table-hover">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Room_no</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Customer</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <%
-                        rooomlist = room.getAllRooms();
-                        for(Room r:rooomlist)
-                        {
-                            if(r.isBooked())
-                            {
-                                status="Booked";
-                                cust=record.getCutomer(r.getRoom_no());
-                            }
-                            else 
-                            {
-                                status="Empty";
-                                cust="-";   
-                            }
-                    %>
-                  <tr>
-                      <th scope="row"><%= r.getRoom_no() %></th>
-                      <th scope="row"><%= r.getType()%></th>
-                      <th scope="row"><%= r.getPrice()%></th>
-                      <th scope="row"><%= status%></th>
-                      <th scope="row"><%= cust%></th>
-                    
-                  </tr>
-                  <%}%>
-                </tbody>
-            </table>
-        </div> <!-- ./container -->            
-	
+                      </tr>
+                      <%}%>
+                    </tbody>
+                </table>
+            </div> <!-- ./container -->
+            <div class="col">
+                <h3>Room Prices :</h3>
+                <form action="updatePrice.html" method="POST">
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Budget Suite :</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" name="Budget_Suite" value="<%= room.getPriceOfType("Budget Suite") %>">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Luxury Single Room :</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" name="Luxury_Single_Room" value="<%= room.getPriceOfType("Luxury Single Room") %>">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-5 col-form-label">Luxury Double Suite :</label>
+                  <div class="col-sm-3">
+                      <input type="text" class="form-control" name="Luxury_Double_Suite" value="<%= room.getPriceOfType("Luxury Double Suite") %>">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-2">
+                      <button type="submit" class="btn btn-primary btn-lg" value="submit">Update</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+        </div>
         <jsp:include page="/footer.jsp"/>
 
 </div>

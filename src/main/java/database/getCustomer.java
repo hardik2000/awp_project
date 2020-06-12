@@ -9,7 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-        
+import java.util.ArrayList;
+import java.sql.Statement;
+import java.sql.ResultSet;        
+
 import data.Database_Feild;
 import domain.Customer;
 /**
@@ -41,5 +44,25 @@ public class getCustomer {
         }  
     }
     
-    
+    public ArrayList<Customer> getAllCustomers(){ 
+        
+        ArrayList<Customer> clist = new ArrayList<Customer>();
+        
+        try {
+            
+            Class.forName(db.driver_string);
+            Connection conn=DriverManager.getConnection(db.db_name,db.username,db.password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs1 = stmt.executeQuery("SELECT * FROM customer");
+            while(rs1.next())
+            {
+                clist.add(new Customer(rs1.getString(1),rs1.getString(2),rs1.getString(3),rs1.getString(4),rs1.getString(5),rs1.getString(6),rs1.getString(7)));
+            }
+            
+        }catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return clist;
+    }
 }

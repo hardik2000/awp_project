@@ -24,14 +24,13 @@ public class Insert_costumer extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        Customer customer=new Customer();
-        customer.setFullname(request.getParameter("firstName"));
-        customer.setEmail(request.getParameter("email"));
-        customer.setPassword(request.getParameter("password"));
-        customer.setDob(request.getParameter("birthDate"));
-        customer.setCountry(request.getParameter("country"));
-        customer.setGender(request.getParameter("gender"));
-        customer.setMeal(request.getParameter("meal"));
+        Customer customer=new Customer(request.getParameter("firstName"),
+                request.getParameter("email"),
+                request.getParameter("password"),
+                request.getParameter("birthDate"),
+                request.getParameter("country"),
+                request.getParameter("gender"),
+                request.getParameter("meal"));
 
         getCustomer c = new getCustomer();
         c.insertCustomer(customer);
