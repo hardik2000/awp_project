@@ -104,7 +104,6 @@ public class getRoom {
             }
         }catch(ClassNotFoundException | SQLException e)
         {
-            e.printStackTrace();
         }
         return room_no;
     }

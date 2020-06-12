@@ -5,9 +5,11 @@
  */
 package Servlet;
 
+import database.getRoom;
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author HARDIK
  */
-public class Final_Page extends HttpServlet {
+@WebServlet("/updatePrice.html")
+public class UpdatePrice extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,28 +31,21 @@ public class Final_Page extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Final_Page</title>");     
-            out.println("<link rel='stylesheet' href='https://getbootstrap.com/docs/4.3/getting-started/introduction'>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div class=\"jumbotron text-center\">\n");
-            out.println("<h1 class=\"display-3\">Thank You!</h1>\n");
-            out.println("<p class=\"lead\"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>\n<hr>\n");
-            out.println("<p>\nHaving trouble? <a href=\"\">Contact us</a>\n</p>\n");  
-            out.println("<p class=\"lead\">\n");
-            out.println("<a class=\"btn btn-primary btn-sm\" href=\"index.jsp\" role=\"button\">Continue to homepage</a>\n");
-            out.println("</p>\n");
-            out.println("</div>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+            throws ServletException, IOException
+    {
+        int price1,price2,price3;
+        price1 = Integer.valueOf(request.getParameter("Budget_Suite"));
+        price2 = Integer.valueOf(request.getParameter("Luxury_Single_Room"));
+        price3 = Integer.valueOf(request.getParameter("Luxury_Double_Suite"));
+
+        getRoom room = new getRoom();
+        room.updatePrice("Budget Suite", price1);
+        room.updatePrice("Luxury Single Room", price2);
+        room.updatePrice("Luxury Double Suite", price3);
+
+        RequestDispatcher rd=request.getRequestDispatcher("admin.jsp");
+        rd.forward(request,response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

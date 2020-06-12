@@ -16,10 +16,6 @@
         <servlet-name>Mail</servlet-name>
         <servlet-class>Mail.FeedBackMail</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>final</servlet-name>
-        <servlet-class>Servlet.Final_Page</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Check</servlet-name>
         <url-pattern>/verify.html</url-pattern>
@@ -36,16 +32,12 @@
         <servlet-name>Mail</servlet-name>
         <url-pattern>/Mail</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>final</servlet-name>
-        <url-pattern>/final</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <security-constraint>
+<!--    <security-constraint>
         <web-resource-collection>
             <web-resource-name>User pages</web-resource-name>
             <url-pattern>/rooms.jsp</url-pattern>
@@ -65,7 +57,7 @@
             <form-login-page>/login.jsp</form-login-page>
             <form-error-page>/error_login.jsp</form-error-page>
         </form-login-config>
-    </login-config>
+    </login-config>-->
     <!-- SMTP settings -->
     <context-param>
         <param-name>host</param-name>
