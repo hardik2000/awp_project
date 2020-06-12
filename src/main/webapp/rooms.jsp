@@ -3,7 +3,6 @@
     Created on : 25 Apr, 2020, 4:28:56 PM
     Author     : HARDIK
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -34,7 +33,7 @@
 	<div class="home">
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/rooms.jpg" data-speed="0.8"></div>
 		<div class="home_container d-flex flex-column align-items-center justify-content-center">
-			<div class="home_title"><h1>Rooms</h1></div>
+                    <div class="home_title"><h1>Welcome <%=request.getSession().getAttribute("sess_name")%></h1><br><h1 align="center">Rooms</h1></div>
 		</div>
 	</div>
 	<!-- Booking -->

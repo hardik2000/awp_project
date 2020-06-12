@@ -12,6 +12,14 @@
         <servlet-name>Process_Rooms</servlet-name>
         <servlet-class>Servlet.Process_Rooms</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Mail</servlet-name>
+        <servlet-class>Mail.FeedBackMail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>final</servlet-name>
+        <servlet-class>Servlet.Final_Page</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Check</servlet-name>
         <url-pattern>/verify.html</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>Process_Rooms</servlet-name>
         <url-pattern>/Process_Rooms</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Mail</servlet-name>
+        <url-pattern>/Mail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>final</servlet-name>
+        <url-pattern>/final</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -50,4 +66,21 @@
             <form-error-page>/error_login.jsp</form-error-page>
         </form-login-config>
     </login-config>
+    <!-- SMTP settings -->
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>ctimetimecoder@gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>Hardik@123</param-value>
+    </context-param>
 </web-app>

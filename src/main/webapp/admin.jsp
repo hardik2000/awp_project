@@ -63,7 +63,7 @@
 	<div class="home">
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/rooms.jpg" data-speed="0.8"></div>
 		<div class="home_container d-flex flex-column align-items-center justify-content-center">
-			<div class="home_title"><h1>Rooms</h1></div>
+			<div class="home_title"><h1>Admin</h1></div>
 		</div>
 	</div>
         

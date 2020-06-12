@@ -19,6 +19,19 @@
 <link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<script>
+    window.onload = function() 
+    {
+        var reloading = sessionStorage.getItem("reloading");
+        if (reloading) {
+            String name=(String)request.getSession().getAttribute("sess_name");
+            if(name===null)
+            {
+                document.getElementById("tag").value="Sign Out";
+            }
+        }
+    };
+</script>
 </head>
 <body>
         <header class="header">
@@ -34,7 +47,7 @@
 					<li><a href="about.jsp">About us</a></li>
 					<li><a href="rooms.jsp">Rooms</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
-                                        <li><a href="login.jsp">Login/Registration</a></li>
+                                        <li><a href="#" name="tag" value="SignIn">Sign In</a></li>
                                 </ul>
 			</nav>
 
