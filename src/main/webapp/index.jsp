@@ -21,6 +21,22 @@
 <link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<script>
+    window.onload = function() 
+    {
+            var name = String('<%= session.getAttribute("sess_name") %>');
+            if(name==="null")
+            {
+                document.getElementById("book").href = "login.jsp";
+            }
+            else
+            {
+                document.getElementById("book").href = "rooms.jsp";
+            }
+    };
+       
+   
+</script>
 </head>
 <body>
     
@@ -33,7 +49,7 @@
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/home.jpg" data-speed="0.8"></div>
 		<div class="home_container d-flex flex-column align-items-center justify-content-center">
 			<div class="home_title"><h1>Book Your Stay</h1></div>
-			<div class="button home_button"><a href="rooms.jsp">book now</a></div>
+			<div class="button home_button"><a href="rooms.jsp" id="book">book now</a></div>
 		</div>
 	</div>
 
@@ -123,7 +139,105 @@
 			</div>
 		</div>
 	</div>
+        <!-- Rooms -->
+	<div class="rooms">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="card-columns">
+						
+						<!-- Room -->
+						<div class="card">
+							<img class="card-img-top" src="images/room_1.jpg">
+							<div class="card-body">
+								<div class="rooms_title"><h2>Luxury Double Suite</h2></div>
+								<div class="rooms_text">
+									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque.</p>
+								</div>
+								<div class="rooms_list">
+									<ul>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Morbi tempus malesuada erat sed</span>
+										</li>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Tempus malesuada erat sed</span>
+										</li>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Pellentesque vel neque finibus elit</span>
+										</li>
+									</ul>
+								</div>
+								
+							</div>
+						</div>
 
+						
+
+						<!-- Room -->
+						<div class="card">
+							<img class="card-img-top" src="images/room_3.jpg" alt="Room image description">
+							<div class="card-body">
+								<div class="rooms_title"><h2>Luxury Single Room</h2></div>
+								<div class="rooms_text">
+									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at.</p>
+								</div>
+								<div class="rooms_list">
+									<ul>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Morbi tempus malesuada erat sed</span>
+										</li>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Tempus malesuada erat sed</span>
+										</li>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Pellentesque vel neque finibus elit</span>
+										</li>
+									</ul>
+								</div>
+								
+							</div>
+						</div>
+
+						<!-- Room -->
+						<div class="card card-special">
+							<img class="card-img-top" src="images/room_4.jpg" alt="Room image description">
+							<div class="card-body">
+								<div class="rooms_title"><h2>Budget Suite</h2></div>
+								<div class="rooms_text">
+									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at.</p>
+								</div>
+								<div class="rooms_list">
+									<ul>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Morbi tempus malesuada erat sed</span>
+										</li>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Tempus malesuada erat sed</span>
+										</li>
+										<li class="d-flex flex-row align-items-center justify-content-start">
+											<img src="images/check.png" alt="">
+											<span>Pellentesque vel neque finibus elit</span>
+										</li>
+									</ul>
+								</div>
+								
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+    </form>
         <jsp:include page="/footer.jsp"/>
 
 </div>

@@ -52,7 +52,7 @@
 				<ul class="d-flex flex-row align-items-center justify-content-start">
 					<li class="active"><a href="index.jsp">Home</a></li>
 					<li><a href="about.jsp">About us</a></li>
-					<li><a href="login.jsp" id="room">Rooms</a></li>
+					<li><a href="login.jsp" id="room">Rooms/Book</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
                                         <li><a href="login.jsp" name="tag" id="sign" value="SignIn" >Sign In</a></li>
                                 </ul>
@@ -73,7 +73,7 @@
 				</div>
 
 				<!-- Header Link -->
-				<div class="header_link"><a href="#">Book Yours Room Now</a></div>
+				<div class="header_link"><a href="login.jsp">Book Yours Room Now</a></div>
 
 				<!-- Hamburger Button -->
 				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
