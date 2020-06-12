@@ -16,10 +16,6 @@
         <servlet-name>Mail</servlet-name>
         <servlet-class>Mail.FeedBackMail</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>final</servlet-name>
-        <servlet-class>Servlet.Final_Page</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Check</servlet-name>
         <url-pattern>/verify.html</url-pattern>
@@ -35,10 +31,6 @@
     <servlet-mapping>
         <servlet-name>Mail</servlet-name>
         <url-pattern>/Mail</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>final</servlet-name>
-        <url-pattern>/final</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

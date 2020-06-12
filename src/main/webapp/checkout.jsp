@@ -146,7 +146,7 @@ span.price {
         <div class="row">
           <div class="col-75">
             <div class="container">
-              <form action="final" method="post" >
+              <form action="final.jsp" method="post" >
 
                 <div class="row">
                   <div class="col-50">

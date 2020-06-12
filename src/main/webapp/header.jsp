@@ -22,15 +22,19 @@
 <script>
     window.onload = function() 
     {
-        var reloading = sessionStorage.getItem("reloading");
-        if (reloading) {
-            String name=(String)request.getSession().getAttribute("sess_name");
-            if(name===null)
+            var name = String('<%= session.getAttribute("sess_name") %>');
+            if(name==="null")
             {
-                document.getElementById("tag").value="Sign Out";
+                document.getElementById("sign").innerHTML="Sign In";
+                document.getElementById("sign").href = "login.jsp";
             }
-        }
+            else
+            {
+                document.getElementById("sign").innerHTML="Sign Out";
+                document.getElementById("sign").href = "logout.jsp";
+            }
     };
+   
 </script>
 </head>
 <body>
@@ -47,7 +51,7 @@
 					<li><a href="about.jsp">About us</a></li>
 					<li><a href="rooms.jsp">Rooms</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
-                                        <li><a href="#" name="tag" value="SignIn">Sign In</a></li>
+                                        <li><a href="login.jsp" name="tag" id="sign" value="SignIn" >Sign In</a></li>
                                 </ul>
 			</nav>
 
