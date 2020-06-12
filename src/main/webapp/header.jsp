@@ -25,15 +25,18 @@
             var name = String('<%= session.getAttribute("sess_name") %>');
             if(name==="null")
             {
+                document.getElementById("room").href = "login.jsp";
                 document.getElementById("sign").innerHTML="Sign In";
                 document.getElementById("sign").href = "login.jsp";
             }
             else
             {
+                document.getElementById("room").href = "rooms.jsp";
                 document.getElementById("sign").innerHTML="Sign Out";
                 document.getElementById("sign").href = "logout.jsp";
             }
     };
+       
    
 </script>
 </head>
@@ -49,7 +52,7 @@
 				<ul class="d-flex flex-row align-items-center justify-content-start">
 					<li class="active"><a href="index.jsp">Home</a></li>
 					<li><a href="about.jsp">About us</a></li>
-					<li><a href="rooms.jsp">Rooms</a></li>
+					<li><a href="login.jsp" id="room">Rooms</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
                                         <li><a href="login.jsp" name="tag" id="sign" value="SignIn" >Sign In</a></li>
                                 </ul>
