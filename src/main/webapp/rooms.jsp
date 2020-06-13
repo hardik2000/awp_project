@@ -3,6 +3,7 @@
     Created on : 25 Apr, 2020, 4:28:56 PM
     Author     : HARDIK
 --%>
+<%@page import="database.getRoom"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -72,7 +73,9 @@
 		</div>
             </div>
       </div>	
-		
+        <%
+            getRoom roomdb = new getRoom();
+            %>
 	
 	<!-- Rooms -->
 	<div class="rooms">
@@ -86,7 +89,7 @@
 							<img class="card-img-top" src="images/room_1.jpg">
 							<div class="card-body">
 								<div class="rooms_title"><h2>Luxury Double Suite</h2></div>
-								<div class="rooms_text">
+                                                                <div class="rooms_text">
 									<p>Maecenas sollicitudin tincidunt maximus. Morbi tempus malesuada erat sed pellentesque. Donec pharetra mattis nulla, id laoreet neque scelerisque at. Quisque eget sem non ligula consectetur ultrices in quis augue. Donec imperd iet leo eget tortor dictum, eget varius eros sagittis. Curabitur tempor dignissim massa ut faucibus sollicitudin tinci dunt maximus. Morbi tempus malesuada erat sed pellentesque.</p>
 								</div>
 								<div class="rooms_list">
@@ -105,7 +108,7 @@
 										</li>
 									</ul>
 								</div>
-								<div class="rooms_price">$129/<span>Night</span></div>
+								<div class="rooms_price">Rs.<%=roomdb.getPriceOfType("Luxury Double Suite")%>/<span>Night</span></div>
                                                                 <button type="submit" name="room_type" class="btn btn-success" value="Luxury Double Suite">Book Now</button>
 							</div>
 						</div>
@@ -136,7 +139,7 @@
 										</li>
 									</ul>
 								</div>
-								<div class="rooms_price">$129/<span>Night</span></div>
+								<div class="rooms_price">Rs.<%=roomdb.getPriceOfType("Luxury Single room")%>/<span>Night</span></div>
                                                                 <button type="submit" name="room_type" class="btn btn-success" value="Luxury Single Room">Book Now</button>
 							</div>
 						</div>
@@ -166,7 +169,7 @@
 										</li>
 									</ul>
 								</div>
-								<div class="rooms_price">$129/<span>Night</span></div>
+								<div class="rooms_price">Rs.<%=roomdb.getPriceOfType("Budget Suite")%>/<span>Night</span></div>
                                                                 <button type="submit" name="room_type" class="btn btn-success" value="Budget Suite">Book Now</button>
 							</div>
 						</div>
