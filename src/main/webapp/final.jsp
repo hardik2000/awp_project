@@ -17,7 +17,7 @@
     }
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>thank you Page</title>
+    <title>Thank You!</title>
 </head> 
 <body> 
     <center>

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
-        <title>Marimar</title>
+        <title>AWP</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Marimar Hotel template project">
@@ -29,7 +29,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="footer_logo text-center">
-						<a href="#"><img src="images/logo.png" alt=""></a>
+						<a href="#"><img height="500" width="500" src="images/logo1_.png" alt=""></a>
 					</div>
 					<div class="footer_content">
 						<div class="row">

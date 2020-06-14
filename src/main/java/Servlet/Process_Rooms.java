@@ -13,7 +13,7 @@ import domain.*;
 import javax.servlet.RequestDispatcher;
 /**
  *
- * @author Hardik Pandya
+ * @author Hardik
  */
 public class Process_Rooms extends HttpServlet {
 

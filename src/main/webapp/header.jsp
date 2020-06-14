@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
-<title>Marimar</title>
+<title>AWP</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Marimar Hotel template project">
@@ -45,14 +45,14 @@
 		<div class="header_content d-flex flex-column align-items-center justify-content-lg-end justify-content-center">
 			
 			<!-- Logo -->
-			<div class="logo"><a href="#"><img class="logo_1" src="images/logo.png" alt=""><img class="logo_2" src="images/logo_2.png" alt=""><img class="logo_3" src="images/logo_3.png" alt=""></a></div>
+                        <div class="logo"><a href="#"><img height="200" width="200" class="logo_1" src="images/logo1_.png" alt=""><img class="logo_2" src="images/logo2_.png" alt=""><img class="logo_3" src="images/logo3_.png" alt=""></a></div>
 
 			<!-- Main Nav -->
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-center justify-content-start">
-					<li class="active"><a href="index.jsp">Home</a></li>
+					<li><a href="index.jsp">Home</a></li>
 					<li><a href="about.jsp">About us</a></li>
-					<li><a href="login.jsp" id="room">Rooms</a></li>
+					<li><a href="login.jsp" id="room">Rooms/Book</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
                                         <li><a href="login.jsp" name="tag" id="sign" value="SignIn" >Sign In</a></li>
                                 </ul>
@@ -73,7 +73,7 @@
 				</div>
 
 				<!-- Header Link -->
-				<div class="header_link"><a href="#">Book Yours Room Now</a></div>
+				<div class="header_link"><a href="login.jsp">Book Your Room Now</a></div>
 
 				<!-- Hamburger Button -->
 				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -97,7 +97,7 @@
 
 	<div class="logo_overlay">
 		<div class="logo_overlay_content d-flex flex-column align-items-center justify-content-center">
-			<div class="logo"><a href="#"><img src="images/logo_3.png" alt=""></a></div>
+			<div class="logo"><a href="#"><img src="images/logo3_.png" alt=""></a></div>
 		</div>
 	</div>
 
