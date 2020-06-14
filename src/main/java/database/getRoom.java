@@ -141,6 +141,21 @@ public class getRoom {
             e.printStackTrace();
         }
     }
+    public void clearRoom(int room_no){
+        try {
+            
+            Class.forName(db.driver_string);
+            Connection conn=DriverManager.getConnection(db.db_name,db.username,db.password);
+            String query = "UPDATE rooms SET booked=0 WHERE room_no=?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, room_no);
+            pstmt.execute();
+        }catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
     
     public void updatePrice(String room_type,int price){
         try {
