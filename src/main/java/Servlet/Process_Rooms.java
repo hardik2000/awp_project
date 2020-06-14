@@ -26,6 +26,34 @@ public class Process_Rooms extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    int getdiff(String in,String out)
+    {
+        int ans=1;//2020-06-13	2020-06-16
+        int yearin=0,monthin=0,dayin=0,yearout=0,monthout=0,dayout=0;
+        int i=0;
+        while(in.charAt(i)!='-')
+        {
+            yearin=yearin*10+in.charAt(i);
+            yearout=yearout*10+out.charAt(i);
+            i++;
+        }
+        i++;
+        while(in.charAt(i)!='-')
+        {
+            monthin=monthin*10+in.charAt(i);
+            monthout=monthout*10+out.charAt(i);
+            i++;
+        }
+        i++;
+        while(i<10)
+        {
+            dayin=dayin*10+in.charAt(i);
+            dayout=dayout*10+out.charAt(i);
+            i++;
+        }
+        ans=(dayout-dayin)+(monthout-monthin)*31+(yearout-yearin)*365;
+        return ans;
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,6 +72,8 @@ public class Process_Rooms extends HttpServlet {
         Record r = new Record(name, number_adults, number_children, check_in, check_out,room_no);
         session.setAttribute("record",r);
         
+        int day=getdiff(check_in,check_out);
+        price=price*day;
         getRecord rdb = new getRecord();
         rdb.insertRecord(r);
         roomdb.markBooked(room_no);
