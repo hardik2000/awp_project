@@ -80,6 +80,7 @@
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
                         <th scope="col">Customer</th>
+                        <th scope="col">Clear</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -104,7 +105,15 @@
                           <th scope="row"><%= r.getPrice()%></th>
                           <th scope="row"><%= status%></th>
                           <th scope="row"><%= cust%></th>
-
+                          <th scope="row">
+                              <% if(r.isBooked()){
+                              %>
+                              <form action="clearRoom.html" method="post">
+                                  <input type="hidden" name="clear" value="<%= r.getRoom_no() %>">
+                                  <input type="submit" name="clear" value="clear">
+                              </form>
+                                  <% }else{%>-<%}%>
+                          </th>
                       </tr>
                       <%}%>
                     </tbody>
@@ -157,5 +166,7 @@
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="plugins/jquery-datepicker/jquery-ui.js"></script>
 <script src="js/custom.js"></script>
+<script>
+</script>
 </body>
 </html>
