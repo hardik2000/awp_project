@@ -16,6 +16,10 @@
         <servlet-name>Mail</servlet-name>
         <servlet-class>Mail.FeedBackMail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>clearRoom</servlet-name>
+        <servlet-class>Servlet.clearRoom</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Check</servlet-name>
         <url-pattern>/verify.html</url-pattern>
@@ -32,12 +36,16 @@
         <servlet-name>Mail</servlet-name>
         <url-pattern>/Mail</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>clearRoom</servlet-name>
+        <url-pattern>/clearRoom.html</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-<!--    <security-constraint>
+    <!--    <security-constraint>
         <web-resource-collection>
             <web-resource-name>User pages</web-resource-name>
             <url-pattern>/rooms.jsp</url-pattern>
