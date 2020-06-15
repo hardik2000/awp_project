@@ -40,7 +40,7 @@ public class Database
             {
                 System.out.println(e);
             }
-            sql = "Create Table records(username_booked VARCHAR(45),number_adults int,number_children int,check_in VARCHAR(45),check_out VARCHAR(45),room_no int);";
+            sql = "Create Table records(username_booked VARCHAR(45),number_adults int,number_children int,check_in VARCHAR(45),check_out VARCHAR(45),room_no int,approved int);";
             try (PreparedStatement prepStm2 = conn.prepareStatement(sql)) 
             {
 		prepStm2.execute();

@@ -20,6 +20,10 @@
         <servlet-name>clearRoom</servlet-name>
         <servlet-class>Servlet.clearRoom</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>approveRoom</servlet-name>
+        <servlet-class>Servlet.approveRoom</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Check</servlet-name>
         <url-pattern>/verify.html</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>clearRoom</servlet-name>
         <url-pattern>/clearRoom.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>approveRoom</servlet-name>
+        <url-pattern>/approveRoom.html</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

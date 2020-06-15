@@ -81,6 +81,7 @@
                         <th scope="col">Status</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Clear</th>
+                        <th scope="col">Approve</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -90,7 +91,10 @@
                             {
                                 if(r.isBooked())
                                 {
-                                    status="Booked";
+                                    if(record.isApproved(r.getRoom_no())==0)
+                                        status="Pending";
+                                    else
+                                        status="Booked";
                                     cust=record.getCutomer(r.getRoom_no());
                                 }
                                 else 
@@ -113,6 +117,17 @@
                                   <input type="submit" name="clear" value="clear">
                               </form>
                                   <% }else{%>-<%}%>
+                          </th>
+                          <!--<th scope="row"><%= record.isApproved(r.getRoom_no())%></th>-->
+                          <th scope="row">
+                              <% if(r.isBooked() && record.isApproved(r.getRoom_no())==0){
+                              %>
+                              <form action="approveRoom.html" method="post">
+                                  <input type="hidden" name="approve" value="<%= r.getRoom_no() %>">
+                                  <input type="submit" name="approve" value="approve">
+                              </form>
+                                  <% }else if(r.isBooked()){%>Approved<%
+                                      }else{%>-<%}%>
                           </th>
                       </tr>
                       <%}%>

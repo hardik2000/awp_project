@@ -16,8 +16,9 @@ public class Record{
     private String number_children;
     private String date_booking;
     private String date_checkout;
+    private int approved;
 
-    public Record(String username_booked, String number_adults, String number_children, String date_booking, String date_checkout, int room_no) {
+    public Record(String username_booked, String number_adults, String number_children, String date_booking, String date_checkout, int room_no,int approved) {
         this.username_booked = username_booked;
         this.number_adults = number_adults;
         this.number_children = number_children;
@@ -32,6 +33,14 @@ public class Record{
 
     public void setRoom_no(int room_no) {
         this.room_no = room_no;
+    }
+    
+    public int isApproved() {
+        return approved;
+    }
+
+    public void setApproved(int approved) {
+        this.approved = approved;
     }
     
     public String getUsername_booked() {
