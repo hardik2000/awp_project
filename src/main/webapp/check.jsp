@@ -51,7 +51,6 @@
         </div>
             <div class="row">
                 <div id="dataid">
-                    This'll be changed.
                 </div>
             </div>
         </div>
