@@ -69,7 +69,7 @@ public class Process_Rooms extends HttpServlet {
         
         HttpSession session = request.getSession();
         String name = (String)session.getAttribute("sess_name");
-        Record r = new Record(name, number_adults, number_children, check_in, check_out,room_no);
+        Record r = new Record(name, number_adults, number_children, check_in, check_out,room_no,0);
         session.setAttribute("record",r);
         
         int day=getdiff(check_in,check_out);
