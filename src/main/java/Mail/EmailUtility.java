@@ -43,7 +43,9 @@ public class EmailUtility
         properties.put("mail.smtp.starttls.enable", "true");
  
         // creates a new session with an authenticator
-        Authenticator auth = new Authenticator() {
+        Authenticator auth;
+        auth = new Authenticator() {
+            @Override
             public PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(userName, password);
             }

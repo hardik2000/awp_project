@@ -26,14 +26,12 @@
             if(name==="null")
             {
                 document.getElementById("room").href = "login.jsp";
-                document.getElementById("room1").href = "login.jsp";
                 document.getElementById("sign").innerHTML="Sign In";
                 document.getElementById("sign").href = "login.jsp";
             }
             else
             {
                 document.getElementById("room").href = "rooms.jsp";
-                document.getElementById("room1").href = "rooms.jsp";
                 document.getElementById("sign").innerHTML="Sign Out";
                 document.getElementById("sign").href = "logout.jsp";
             }
@@ -74,9 +72,7 @@
 					</svg>
 				</div>
 
-				<!-- Header Link -->
-				<div class="header_link"><a href="login.jsp" id="rooom1">Book Your Room Now</a></div>
-
+				
 				<!-- Hamburger Button -->
 				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
 
