@@ -17,12 +17,12 @@
         String db_password=db.password;
         Class.forName(driver_string);
         Connection conn=DriverManager.getConnection(db_name,db_username,db_password);
-        PreparedStatement ps=conn.prepareStatement("select * from records where username=?"); 
+        PreparedStatement ps=conn.prepareStatement("select * from records where username_booked=?"); 
         ps.setString(1,s);  
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
             if(rs.getInt("approved")==1){
-                out.println("Room has been approved by our staff.Room number alloted:" + rs.getInt("room_no"));
+                out.println("Room has been approved by our staff.Room number alloted:" + rs.getInt("room_no") + "<br>");
             }else{
                 out.println("Status:Pending for room "+ rs.getInt("room_no") +"is pending<br>");
             }
