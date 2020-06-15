@@ -72,9 +72,7 @@
 					</svg>
 				</div>
 
-				<!-- Header Link -->
-				<div class="header_link"><a href="login.jsp">Book Your Room Now</a></div>
-
+				
 				<!-- Hamburger Button -->
 				<div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
 
