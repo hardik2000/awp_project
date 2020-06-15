@@ -23,7 +23,8 @@
     <center>
         <h1 style="color:red;background-color:black;font-family:serif;"> Thank  You </h1>
         <h2  style="color:coral;">stay home stay safe</h2>
-        <h2  style="color:green;">for every room you book we plant a tree</h2>
+        <h2  style="color:green;">For every room you book we plant a Tree</h2>
+        <h2  style="color:green;">Check your room status by clicking <a href="check.jsp">Status page</a></h2>
         <h2><a href="logout.jsp" id="link">logout</a></h2>
     </center>
    

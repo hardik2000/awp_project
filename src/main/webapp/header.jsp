@@ -26,12 +26,14 @@
             if(name==="null")
             {
                 document.getElementById("room").href = "login.jsp";
+                document.getElementById("status").href = "login.jsp";
                 document.getElementById("sign").innerHTML="Sign In";
                 document.getElementById("sign").href = "login.jsp";
             }
             else
             {
                 document.getElementById("room").href = "rooms.jsp";
+                document.getElementById("status").href = "check.jsp";
                 document.getElementById("sign").innerHTML="Sign Out";
                 document.getElementById("sign").href = "logout.jsp";
             }
@@ -55,6 +57,7 @@
 					<li><a href="login.jsp" id="room">Rooms/Book</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
                                         <li><a href="login.jsp" name="tag" id="sign" value="SignIn" >Sign In</a></li>
+                                        <li><a href="login.jsp" name="status" id="status">Status</a></li>
                                 </ul>
 			</nav>
 
