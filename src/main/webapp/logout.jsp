@@ -1,8 +1,3 @@
-<%-- 
-    Document   : logout
-    Created on : 12 Jun, 2020, 3:14:19 PM
-    Author     : HARDIK
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

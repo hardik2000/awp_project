@@ -1,8 +1,4 @@
-<%-- 
-    Document   : rooms
-    Created on : 25 Apr, 2020, 4:28:56 PM
-    Author     : HARDIK
---%>
+
 <%@page import="database.getRoom"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

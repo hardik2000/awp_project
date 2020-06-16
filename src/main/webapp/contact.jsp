@@ -1,8 +1,3 @@
-<%-- 
-    Document   : contact
-    Created on : 25 Apr, 2020, 4:36:39 PM
-    Author     : HARDIK
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

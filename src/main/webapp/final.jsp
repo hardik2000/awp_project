@@ -1,8 +1,3 @@
-<%-- 
-    Document   : final
-    Created on : 12 Jun, 2020, 2:50:36 PM
-    Author     : HARDIK
---%>
 
 <%@page import="database.getRecord"%>
 <%@page import="domain.Record"%>

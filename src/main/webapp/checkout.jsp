@@ -1,8 +1,3 @@
-<%-- 
-    Document   : checkout.java
-    Created on : 25 May, 2020, 3:53:24 PM
-    Author     : HARDIK
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

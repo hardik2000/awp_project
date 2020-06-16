@@ -1,8 +1,3 @@
-<%-- 
-    Document   : newjsp
-    Created on : 15 Jun, 2020, 1:40:34 PM
-    Author     : HARDIK
---%>
 
 <%@page import="data.Database_Feild"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
