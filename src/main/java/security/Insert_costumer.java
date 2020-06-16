@@ -15,10 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author HARDIK
- */
+
 public class Insert_costumer extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

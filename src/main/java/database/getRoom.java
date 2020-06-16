@@ -14,10 +14,7 @@ import java.util.ArrayList;
         
 import data.Database_Feild;
 import domain.Room;
-/**
- *
- * @author aditya
- */
+
 public class getRoom {
     Database_Feild db=new Database_Feild();
     

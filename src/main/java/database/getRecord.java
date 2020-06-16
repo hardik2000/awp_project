@@ -12,10 +12,7 @@ import java.sql.SQLException;
 /**/import data.Database_Feild;
 import domain.Record;
 import java.sql.ResultSet;
-/**
- *
- * @author aditya
- */
+
 public class getRecord {
 
     Database_Feild db=new Database_Feild();

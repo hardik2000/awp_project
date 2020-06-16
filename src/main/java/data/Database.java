@@ -12,10 +12,7 @@ import java.sql.SQLException;
 
 import domain.Room;
 
-/**
- *
- * @author HARDIK
- */
+
 public class Database 
 {
     public static void main(String args[])

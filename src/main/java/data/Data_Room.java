@@ -4,10 +4,7 @@ package data;
 import java.util.ArrayList;
 
 import domain.Room;
-/**
- *
- * @author aditya
- */
+
 public class Data_Room {
     
     ArrayList<Room> rooms = new ArrayList<Room>();

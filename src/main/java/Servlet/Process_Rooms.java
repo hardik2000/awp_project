@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import domain.*;
 import javax.servlet.RequestDispatcher;
-/**
- *
- * @author Hardik
- */
 public class Process_Rooms extends HttpServlet {
 
     /**

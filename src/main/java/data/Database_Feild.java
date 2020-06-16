@@ -5,10 +5,7 @@
  */
 package data;
 
-/**
- *
- * @author HARDIK
- */
+
 public class Database_Feild 
 {
 

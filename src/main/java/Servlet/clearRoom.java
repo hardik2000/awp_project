@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import database.getRecord;
 import database.getRoom;
 import javax.servlet.RequestDispatcher;
-/**
- *
- * @author aditya
- */
+
 public class clearRoom extends HttpServlet {
 
     /**

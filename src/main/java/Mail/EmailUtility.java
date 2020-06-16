@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package Mail;
-/**
- *
- * @author HARDIK
- */
+
  
 import java.util.Date;
 import java.util.Properties;

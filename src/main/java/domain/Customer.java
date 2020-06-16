@@ -5,10 +5,7 @@
  */
 package domain;
 
-/**
- *
- * @author HARDIK
- */
+
 public class Customer {
 
     private String fullname;

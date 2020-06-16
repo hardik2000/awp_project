@@ -15,10 +15,7 @@ import java.sql.ResultSet;
 
 import data.Database_Feild;
 import domain.Customer;
-/**
- *
- * @author aditya
- */
+
 public class getCustomer {
     
     Database_Feild db=new Database_Feild();

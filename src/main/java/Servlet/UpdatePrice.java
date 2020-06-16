@@ -14,10 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author HARDIK
- */
+
 @WebServlet("/updatePrice.html")
 public class UpdatePrice extends HttpServlet {
 

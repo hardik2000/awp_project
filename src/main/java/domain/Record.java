@@ -5,10 +5,7 @@
  */
 package domain;
 
-/**
- *
- * @author HARDIK
- */
+
 public class Record{
     private int room_no;
     private String username_booked;

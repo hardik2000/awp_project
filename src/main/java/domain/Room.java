@@ -5,10 +5,6 @@
  */
 package domain;
 
-/**
- *
- * @author HARDIK
- */
 public class Room{
     private String discription;
     private String type;
